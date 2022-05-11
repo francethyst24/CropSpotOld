@@ -11,6 +11,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.cropspot.ui.screen.CropScreen
+import com.example.cropspot.ui.screen.MainScreen
+import com.example.cropspot.ui.screen.Screen
 import com.example.cropspot.ui.theme.CropSpotTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,10 +28,17 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CropSpotTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                val navController = rememberNavController()
+                NavHost(
+                    navController = navController,
+                    startDestination = Screen.MainScreen.route
+                ) {
+                    composable(Screen.MainScreen.route) {
+                        MainScreen()
+                    }
+                    composable(Screen.CropScreen.route) {
+                        CropScreen()
+                    }
                 }
             }
         }
