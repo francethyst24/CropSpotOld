@@ -1,8 +1,8 @@
-package com.example.cropspot.ui.screen
+package com.example.cropspot.ui.crop_list
 
 import androidx.compose.runtime.Composable
 
 @Composable
-fun MainScreen() {
+fun CropList() {
 
 }

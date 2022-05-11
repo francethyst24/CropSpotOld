@@ -1,4 +1,4 @@
-package com.example.cropspot.ui.screen
+package com.example.cropspot.utils
 
 sealed class Screen(val route: String) {
     object MainScreen: Screen("main")
